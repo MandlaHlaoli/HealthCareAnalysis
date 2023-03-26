@@ -3,7 +3,6 @@
 CREATE TABLE patients (
     id INT PRIMARY KEY,
     name VARCHAR(255),
-  
     date_of_birth DATE,
     address VARCHAR(255),
     phone VARCHAR(20),
@@ -51,6 +50,14 @@ CREATE TABLE appointments (
 
 -- Tests table
 CREATE TABLE tests (
+    id INT PRIMARY KEY,
+    patient_id INT,
+    test_type VARCHAR(255),
+    test_result VARCHAR(255),
+    test_date DATE,
+    FOREIGN KEY (patient_id) REFERENCES patients(id)
+);
+CREATE TABLE tests2 (
     id INT PRIMARY KEY,
     patient_id INT,
     test_type VARCHAR(255),
